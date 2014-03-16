@@ -1,0 +1,18 @@
+<% if @items.any? %>
+  <h1><%= pluralize(@items.count, "item") %> </h1>
+
+  <% @items.each do |item|  %>
+  <div class="item-box col-sm-12">
+    <div class="deal-type-sell">팝니다</div>
+    <% #퍼블리시 단계에서는 이미지로 전환되어야 합니다. %>
+
+    <img src="http://placehold.it/120" alt="" class="col-sm-3" />
+    <div class="col-sm-9">
+      <h4 class="list-group-item-heading"><%= item.title  %></h4>
+      <p class="list-group-item-text"><%= item.description  %></p>
+      <p>uploader : <%= item.user.name  %></p>
+      <p>price : <%= item.price  %></p>
+    </div>
+  </div>
+  <% end %>
+<% end %>

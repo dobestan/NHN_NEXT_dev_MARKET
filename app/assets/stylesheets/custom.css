@@ -4,3 +4,13 @@ div.item-box {
   padding: 20px;
   background-color: #eee;
 }
+
+div.deal-type-sell {
+  position: absolute;
+  font-size: 20px;
+  color: white;
+  background-color: red;
+  z-index: 1;
+  top: -5px;
+  left: -20px;
+}
