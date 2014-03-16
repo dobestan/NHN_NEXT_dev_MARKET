@@ -15,5 +15,9 @@
   <%= f.text_area :price %>
   </div>
 
+  <div>
+  <%= f.select(:deal, [["팝니다", 0], ["삽니다", 1], ["나눔합니다", 2]])  %>
+  </div>
+
   <%= f.submit "SELL ITEM"  %>
 <% end %>

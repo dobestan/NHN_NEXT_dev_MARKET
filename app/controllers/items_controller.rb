@@ -4,10 +4,10 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @items = current_user.items.build(item_params)
-    @items.update_attributes(deal: 0, finish: 0)
-    if @items.save
-      render text: "okay"
+    @item = current_user.items.build(item_params)
+    @item.update_attributes(finish: 0)
+    if @item.save
+      redirect_to root_path
     else
       render text: "no"
     end
@@ -15,6 +15,6 @@ class ItemsController < ApplicationController
 
   private
     def item_params
-      params.require(:item).permit(:title, :description, :price)
+      params.require(:item).permit(:title, :description, :price, :deal)
     end
 end
