@@ -1,0 +1,50 @@
+<h1><%= link_to "#{@user.name}", "#{@user_infos["link"]}"  %></h1>
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title">FACEBOOK BASIC INFO</h3>
+  </div>
+  <div class="panel-body">
+    * 아래의 정보는 페이스북 로그인 연동 과정에서 사용자의 동의를 얻어 가져온 정보입니다.<br />
+    * 본 서비스는 로그인에 필요한 최소한의 정보 이외의 어떠한 정보도 필요로 하지 않습니다.<br /><br />
+    <ul>
+      <li>provider : <strong><%= @user.provider %></strong></li>
+      <li>uid : <strong><%= @user.uid %></strong></li>
+      <li>name : <strong><%= @user.name %></strong></li>
+      <li>oauth_token : <strong>N/A ( requires admin permission )</strong></li>
+      <li>oauth_expires_at : <strong><%= @user.oauth_expires_at %></strong></li>
+    </ul>
+  </div>
+</div>
+
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title">FACEBOOK GRAPH INFO</h3>
+  </div>
+  <div class="panel-body">
+    * 아래의 정보는 uid를 이용하여 Facebook Graph Information을 통해 가져온 정보입니다.<br />
+    * <%= link_to "Facebook Graph Information ( #{@user.name} )", "http://graph.facebook.com/#{@user.uid}" %> 를 파싱해서 출력한 결과입니다.<br /><br />
+    <ul>
+      <li>id : <strong><%= @user_infos["id"] %></strong></li>
+      <li>name : <strong><%= @user_infos["name"] %></strong></li>
+      <li>first_name : <strong><%= @user_infos["first_name"] %></strong></li>
+      <li>last_name : <strong><%= @user_infos["last_name"] %></strong></li>
+      <li>link : <strong><%= link_to "#{@user_infos["link"]}", "#{@user_infos["link"]}"  %></strong>
+      <li>gender : <strong><%= @user_infos["gender"] %></strong></li>
+      <li>locale : <strong><%= @user_infos["locale"] %></strong></li>
+      <li>username : <strong><%= @user_infos["username"] %></strong></li>
+    </ul>
+  </div>
+</div>
+
+<div class="panel panel-success">
+  <div class="panel-heading">
+    <h3 class="panel-title">추후 업데이트에서는 추가적인 개인 정보를 수집할 예정입니다.</h3>
+  </div>
+  <div class="panel-body">
+    <ul>
+    <li> 수집 대상 : <strong>email(compulsory)</strong>, <strong>phone_number(optional)</strong><br /> </li>
+    <li> 수집 이유 : 이메일을 통한 알람 기능 구현 예정<br /> </li>
+    <li> 수집 방식 : 페이스북 로그인 권한 추가 </li>
+    </ul>
+  </div>
+</div>

@@ -15,6 +15,9 @@ gem 'omniauth-facebook'
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
 
+gem 'nokogiri'
+gem 'iconv'
+
 group :doc do
   gem 'sdoc', require: false
 end
