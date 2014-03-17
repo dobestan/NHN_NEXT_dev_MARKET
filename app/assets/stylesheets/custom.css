@@ -5,7 +5,7 @@ div.item-box {
   background-color: #eee;
 }
 
-div.deal-type-sell {
+div.deal-type {
   position: absolute;
   z-index: 1;
   top: -2px;
