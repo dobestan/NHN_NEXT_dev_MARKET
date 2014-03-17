@@ -12,6 +12,8 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'will_paginate'
+gem 'will_paginate-bootstrap'
 
 group :doc do
   gem 'sdoc', require: false

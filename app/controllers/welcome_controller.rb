@@ -1,5 +1,5 @@
 class WelcomeController < ApplicationController
   def home
-    @items = Item.all
+    @items = Item.paginate(page: params[:page])
   end
 end
