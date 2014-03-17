@@ -4,3 +4,43 @@ div.item-box {
   padding: 20px;
   background-color: #eee;
 }
+
+div.deal-type {
+  position: absolute;
+  z-index: 1;
+  top: -2px;
+  left: -33px;
+}
+
+div.input-group {
+  margin: 20px 0px 20px 0px;
+}
+
+div.input-group-radio {
+  margin: 0px 0px 0px 0px;
+}
+
+div.panel.panel-info {
+  margin-top: 20px;
+  margin-bottom: 60px;
+}
+
+div.panel.panel-success {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.btn.btn-lg.btn-primary.new-item-button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+ul.pagination {
+  display: block;
+  text-align: center;
+}
+
+ul.pagination li {
+  display: inline-block;
+}
