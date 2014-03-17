@@ -7,12 +7,9 @@ div.item-box {
 
 div.deal-type-sell {
   position: absolute;
-  font-size: 20px;
-  color: white;
-  background-color: red;
   z-index: 1;
-  top: -5px;
-  left: -20px;
+  top: -2px;
+  left: -33px;
 }
 
 div.input-group {
@@ -37,4 +34,13 @@ div.panel.panel-success {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+ul.pagination {
+  display: block;
+  text-align: center;
+}
+
+ul.pagination li {
+  display: inline-block;
 }

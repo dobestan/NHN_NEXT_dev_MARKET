@@ -1,20 +1,15 @@
 <div>
   <% if current_user %>
-    Signed in as <strong><%= current_user.name %></strong>!
-    <%= link_to "Sign out", signout_path %>
+    <div class="alert alert-success">
+      <strong><%= current_user.name %></strong> 계정으로 접속중입니다.
+    </div>
   <% else %>
-    <%= link_to "Sign in with Facebook", "/auth/facebook" %>
+    <div class="alert alert-info">
+      로그인 이후 서비스 사용이 가능합니다.
+      <%= link_to "Sign in with Facebook", "/auth/facebook" %>
+    </div>
   <% end %>
 </div>
 
-<button type="button" class="btn btn-lg btn-primary">ADD NEW ITEM</button>
-
-<p>
-  여기에 그 정보도 포함되어야 한다.<br />
-  판매완료만 볼 것인가? 전체 상품에 대해서 볼 것인가<br />
-  이베이를 참조할 것
-</p>
-
-<%= will_paginate @items, renderer: BootstrapPagination::Rails  %>
-
 <%= render "layouts/item"  %>
+<%= will_paginate @items, renderer: BootstrapPagination::Rails  %>
