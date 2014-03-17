@@ -3,6 +3,10 @@ class ItemsController < ApplicationController
     @item = current_user.items.build
   end
 
+  def show
+    @item = Item.find(params[:id])
+  end
+
   def create
     @item = current_user.items.build(item_params)
     @item.update_attributes(finish: 0)
