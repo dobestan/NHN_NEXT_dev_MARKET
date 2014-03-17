@@ -5,6 +5,7 @@ RORNextEbay::Application.routes.draw do
   get "/sell", to: "welcome#sell"
   get "/buy", to: "welcome#buy"
   get "/share", to: "welcome#share"
+  get "/users/:id/items", to: "users#items"
 
   match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   match 'auth/failure', to: redirect('/'), via: [:get, :post]

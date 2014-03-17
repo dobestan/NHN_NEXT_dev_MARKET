@@ -34,7 +34,7 @@
       <% if current_user %>
       <ul class="nav nav-sidebar">
         <li><%= link_to "상품 등록하기", new_item_path %></li>
-        <li><a href="#">내가 쓴 글</a></li>
+        <li><%= link_to "내가 쓴 글", "/users/#{current_user.id}/items" %></li>
       </ul>
 
       <ul class="nav nav-sidebar">
