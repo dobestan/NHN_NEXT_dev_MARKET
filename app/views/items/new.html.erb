@@ -1,23 +1,83 @@
-<h1>new</h1>
+<h1>새로운 물품을 등록하세요</h1>
+<p><strike>용돈을 벌 수 있습니다. 전공서적을 팔아  포커리에서 점심를 먹고 오렌지마트에서 아이스크림을 사먹는건 참 행복한 일이죠 후후 :)</strike></p>
+
 <%= form_for(@item) do |f|  %>
-  <div>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
+  <div class="input-group">
+    <span class="input-group-addon">상품명</span>
+    <%= f.text_field :title, class: "form-control", placeholder: "상품의 이름을 적으세요."  %>
   </div>
 
-  <div>
-  <%= f.label :description %>
-  <%= f.text_area :description %>
+  <div class="input-group">
+    <span class="input-group-addon">설명</span>
+    <%= f.text_field :description, class: "form-control", placeholder: "Description (Optional)"  %>
   </div>
 
-  <div>
-  <%= f.label :price %>
-  <%= f.text_area :price %>
+
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h3 class="panel-title">상품명에는 무엇을 입력하면 좋은가요?</h3>
+    </div>
+    <div class="panel-body">
+      고민할 필요 없이 쉬운 상품명을 입력하시면 됩니다.
+      이 세상의 많은 제품들은 각자만의 고유한 이름을 가지고 있습니다.
+      상품명은 간결하되 기억하기 쉬워야 합니다. 아이디어가 필요하신가요?
+      당신만의 오늘의 문구는 <strong>"동쪽의-수염난-염소-동생"</strong> 입니다.
+      <br /><strike>* 사용자들이 꼭 알아두어야 할 일 : 개발자가 "동쪽의-수염난-염소-엄마" 같은거 구현하다가 4시간 넘게 보냈다고 합니다.</strike>
+    </div>
   </div>
 
-  <div>
-  <%= f.select(:deal, [["팝니다", 0], ["삽니다", 1], ["나눔합니다", 2]])  %>
+  <div class="input-group">
+    <span class="input-group-addon">가격</span>
+    <%= f.text_field :price, class: "form-control", placeholder: "15000"  %>
+    <span class="input-group-addon">원</span>
   </div>
 
-  <%= f.submit "SELL ITEM"  %>
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h3 class="panel-title">가격은 어느정도가 적당한가요?</h3>
+    </div>
+    <div class="panel-body">
+      <strike>있는 힘껏 가격하셔도 됩니다. 퍽퍽</strike> 가격의 단위는 "원"입니다. 추후 업데이트에서는 넥스트 마켓 홈페이지의 통계정보(가격통계, 판매통계, 이달의 판매왕 등...)를 제공하려고 합니다. 올바른 데이터 전송 부탁드려요 :)
+    </div>
+  </div>
+
+  <div class="input-group input-group-radio">
+    <span class="input-group-addon">
+      <%= f.radio_button "deal", "0" %>
+    </span>
+    <p class="form-control">팝니다</p>
+  </div>
+
+  <div class="input-group input-group-radio">
+    <span class="input-group-addon">
+      <%= f.radio_button "deal", "1" %>
+    </span>
+    <p class="form-control">삽니다</p>
+  </div>
+
+  <div class="input-group input-group-radio">
+    <span class="input-group-addon">
+      <%= f.radio_button "deal", "2" %>
+    </span>
+    <p class="form-control">나눔합니다</p>
+  </div>
+
+  <div class="panel panel-success">
+    <div class="panel-heading">
+      <h3 class="panel-title">추후 개발에서는 무엇이 달라지나요?</h3>
+    </div>
+    <div class="panel-body">
+      현재 구현되어 있는 마켓은 굉장히 기본적인 사고/팔고 기능만 구현되어 있습니다.<br />
+      추후 개발에서는 아래의 기능들을 제공할 예정입니다.<br /><br />
+      <ul>
+        <li>전체적인 통계 정보 제공 : 이달의 구매왕 / 이달의 판매왕 등</li>
+        <li>실시간 온라인 경매시스템 구현</li>
+        <li>Best Offer(협상) 기능 구현</li>
+        <li>공동구매 신청 및 참여 구현</li>
+        <li>메일 알람 기능 구현</li>
+      </ul>
+    </div>
+  </div>
+
+  <%= f.submit "등록하기", class: "btn btn-lg btn-primary new-item-button"  %>
 <% end %>
