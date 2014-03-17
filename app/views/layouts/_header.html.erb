@@ -25,10 +25,10 @@
   <div class="row">
     <div class="col-sm-3 col-md-2 sidebar">
       <ul class="nav nav-sidebar">
-        <li class="active"><%= link_to "전체보기", root_path %></li>
-        <li><a href="#">팝니다</a></li>
-        <li><a href="#">삽니다</a></li>
-        <li><a href="#">나눔합니다</a></li>
+        <li class="active"><%= link_to "전체보기", all_path %></li>
+        <li><%= link_to "팝니다", sell_path %></li>
+        <li><%= link_to "삽니다", buy_path %></li>
+        <li><%= link_to "나눔합니다", share_path %></li>
       </ul>
 
       <% if current_user %>

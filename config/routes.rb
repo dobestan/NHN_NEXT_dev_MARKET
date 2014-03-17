@@ -1,12 +1,17 @@
 RORNextEbay::Application.routes.draw do
   root "welcome#home"
 
+  get "/all", to: "welcome#home"
+  get "/sell", to: "welcome#sell"
+  get "/buy", to: "welcome#buy"
+  get "/share", to: "welcome#share"
+
   match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   match 'auth/failure', to: redirect('/'), via: [:get, :post]
   match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
 
   resources :items
-  resources :users
+  resources :users, only: [:show], via: :get
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
