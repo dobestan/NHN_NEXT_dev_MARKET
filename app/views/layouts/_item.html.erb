@@ -18,6 +18,7 @@
     </div>
 
     <%= image_tag("180.jpg", class: "col-sm-4")  %>
+    <%= image_tag item.main_image.url %>
     <div class="col-sm-8">
       <h4 class="list-group-item-heading"><strong><%= item.title %></strong></h4>
       <p class="list-group-item-text"><%= item.description  %></p><br />

@@ -18,6 +18,8 @@ gem 'will_paginate-bootstrap'
 gem 'nokogiri'
 gem 'iconv'
 
+gem 'paperclip'
+
 group :doc do
   gem 'sdoc', require: false
 end

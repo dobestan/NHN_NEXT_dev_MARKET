@@ -1,7 +1,8 @@
 <h1>새로운 물품을 등록하세요</h1>
 <p><strike>용돈을 벌 수 있습니다. 전공서적을 팔아  포커리에서 점심를 먹고 오렌지마트에서 아이스크림을 사먹는건 참 행복한 일이죠 후후 :)</strike></p>
 
-<%= form_for(@item) do |f|  %>
+<%= form_for @item, html: {multipart: true} do |f|  %>
+  <%= f.file_field :main_image %>
   <div class="input-group">
     <span class="input-group-addon">상품명</span>
     <%= f.text_field :title, class: "form-control", placeholder: "상품의 이름을 적으세요."  %>
@@ -22,7 +23,7 @@
       이 세상의 많은 제품들은 각자만의 고유한 이름을 가지고 있습니다.
       상품명은 간결하되 기억하기 쉬워야 합니다. 아이디어가 필요하신가요?
       당신만의 오늘의 문구는 <strong>"동쪽의-수염난-염소-동생"</strong> 입니다.
-      <br /><strike>* 사용자들이 꼭 알아두어야 할 일 : 개발자가 "동쪽의-수염난-염소-엄마" 같은거 구현하다가 4시간 넘게 보냈다고 합니다.</strike>
+      <br /><strike>* 당신만의 오늘의 문구는 아직은 구현 X : this is just a plain text</strike>
     </div>
   </div>
 
