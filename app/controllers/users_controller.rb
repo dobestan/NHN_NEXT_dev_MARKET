@@ -11,4 +11,10 @@ class UsersController < ApplicationController
   def items
     @items = User.find(params[:id]).items
   end
+
+  def finish
+    @item = Item.find(params[:id])
+    @item.update_attributes(finish: 1)
+    redirect_to root_path
+  end
 end

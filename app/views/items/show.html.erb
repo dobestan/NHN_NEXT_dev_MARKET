@@ -1,30 +1,60 @@
-<h1>SHOW</h1>
+<div class="panel panel-success">
+  <div class="panel-heading">
+    <h3 class="panel-title">상품 상세 페이지</h3>
+  </div>
+  <div class="panel-body">
+    <strong>
+    * v1.0에서는 구현되지 않았습니다.<br />
+    * <strike>왜냐면 넣을 기능도 없고 내용도 없고 아무것도 딱히 없기 때문이죠 후후</strike><br />
+    * 향후 업데이트에서는 아래의 기능들이 추가될 예정입니다.<br /><br />
+    </strong>
+    <ul>
+      <li>댓글 기능이 추가될 예정입니다.</li>
+      <li>개인적으로는 페이스북 댓글 연동 / 자체 댓글 기능 구현을 고민하고 있습니다.</li>
+      <li>판매자의 다른 상품 보기</li>
+      <li>유사 상품 보기 : 카테고리 기능이 추가될 예정입니다.</li>
+    </ul>
+  </div>
+</div>
 
 <div class="item-box col-sm-12">
   <div class="deal-type">
-    <% if @item.deal == 0 %>
-      <%= image_tag("deal_0.png")  %>
-    <% elsif @item.deal == 1 %>
-      <%= image_tag("deal_1.png") %>
+    <% if @item.finish == 0 %>
+      <% if @item.deal == 0 %>
+        <%= image_tag("deal_0.png")  %>
+      <% elsif @item.deal == 1 %>
+        <%= image_tag("deal_1.png") %>
+      <% else %>
+        <%= image_tag("deal_2.png") %>
+      <% end %>
     <% else %>
-      <%= image_tag("deal_2.png") %>
+      <%= image_tag("finish_1.png") %>
     <% end %>
+
 
   </div>
 
   <%= image_tag("180.jpg", class: "col-sm-4")  %>
   <div class="col-sm-8">
-    <h4 class="list-group-item-heading"><%= @item.title  %></h4>
-    <p class="list-group-item-text"><%= @item.description  %></p>
-    <p>uploader : <%= @item.user.name  %></p>
-    <p>price : <%= @item.price  %>원</p>
+    <h4 class="list-group-item-heading"><strong><%= @item.title %></strong></h4>
+    <p class="list-group-item-text"><%= @item.description  %></p><br />
+    <ul>
+      <li>
+      판매자 : 
+      <%= link_to "#{@item.user.name}", user_path(@item.user.id) %> | 
+      <%= link_to "#{@item.user.items.count}", "/users/#{@item.user.id}/items" %>
+      </li>
+      <li>가격 : <%= @item.price %>원</li>
+      <li>판매일자 : <%= @item.created_at %></li>
+    </ul>
 
+    <%= link_to "자세히 알아보기", item_path(@item), class: "btn btn-sm btn-primary" %>
     <% if current_user %>
-      <%= link_to "완료", item_path(@item), class: "btn btn-sm btn-success" %>
+      <% if @item.finish == 0 %>
+        <%= link_to "완료", "/items/#{@item.id}/finish", class: "btn btn-sm btn-success", method: :post %>
+        <%= link_to "수정", edit_item_path(@item), class: "btn btn-sm btn-warning" %>
+      <% end %>
       <%= link_to "삭제", item_path(@item), method: :delete, class: "btn btn-sm btn-danger"%>
     <% end %>
   </div>
 </div>
-
-<div class="fb-comments" data-href="http://localhost:3000/items/<%= @item.id %>" data-numposts="5" data-colorscheme="light"></div>
-<div class="fb-like" data-href="http://localhost:3000/items/<%= @item.id  %>" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
