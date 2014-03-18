@@ -34,7 +34,7 @@
 
   </div>
 
-  <%= image_tag("180.jpg", class: "col-sm-4")  %>
+  <%= image_tag(@item.main_image.url, class: "col-sm-4") %>
   <div class="col-sm-8">
     <h4 class="list-group-item-heading"><strong><%= @item.title %></strong></h4>
     <p class="list-group-item-text"><%= @item.description  %></p><br />
@@ -57,4 +57,8 @@
       <%= link_to "삭제", item_path(@item), method: :delete, class: "btn btn-sm btn-danger"%>
     <% end %>
   </div>
+</div>
+
+<div>
+  <%= image_tag(@item.main_image.url) %>
 </div>
