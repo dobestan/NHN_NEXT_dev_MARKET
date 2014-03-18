@@ -1,0 +1,30 @@
+<h1>SHOW</h1>
+
+<div class="item-box col-sm-12">
+  <div class="deal-type">
+    <% if @item.deal == 0 %>
+      <%= image_tag("deal_0.png")  %>
+    <% elsif @item.deal == 1 %>
+      <%= image_tag("deal_1.png") %>
+    <% else %>
+      <%= image_tag("deal_2.png") %>
+    <% end %>
+
+  </div>
+
+  <%= image_tag("180.jpg", class: "col-sm-4")  %>
+  <div class="col-sm-8">
+    <h4 class="list-group-item-heading"><%= @item.title  %></h4>
+    <p class="list-group-item-text"><%= @item.description  %></p>
+    <p>uploader : <%= @item.user.name  %></p>
+    <p>price : <%= @item.price  %>원</p>
+
+    <% if current_user %>
+      <%= link_to "완료", item_path(@item), class: "btn btn-sm btn-success" %>
+      <%= link_to "삭제", item_path(@item), method: :delete, class: "btn btn-sm btn-danger"%>
+    <% end %>
+  </div>
+</div>
+
+<div class="fb-comments" data-href="http://localhost:3000/items/<%= @item.id %>" data-numposts="5" data-colorscheme="light"></div>
+<div class="fb-like" data-href="http://localhost:3000/items/<%= @item.id  %>" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>

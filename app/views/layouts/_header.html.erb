@@ -1,0 +1,64 @@
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <strong><%= link_to "NEXT MARKET : v1.0", root_path, class: "navbar-brand" %></strong>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <% if current_user %>
+          <li><%= link_to "Sign out", signout_path  %></li>
+        <% else %>
+          <li><%= link_to "Sign in", "/auth/facebook"  %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3 col-md-2 sidebar">
+      <ul class="nav nav-sidebar">
+        <li class="active"><%= link_to "전체보기", root_path %></li>
+        <li><%= link_to "팝니다", sell_path %></li>
+        <li><%= link_to "삽니다", buy_path %></li>
+        <li><%= link_to "나눔합니다", share_path %></li>
+      </ul>
+
+      <% if current_user %>
+      <ul class="nav nav-sidebar">
+        <li><%= link_to "상품 등록하기", new_item_path %></li>
+        <li><%= link_to "내가 쓴 글", "/users/#{current_user.id}/items" %></li>
+      </ul>
+
+      <ul class="nav nav-sidebar">
+        <li><%= link_to "Profile ( #{current_user.name} )", user_path(current_user.id) %></li>
+      </ul>
+      <% end %>
+
+      <ul class="nav nav-sidebar">
+        <li><a href="http://ansuchan.com">by @dobestan</a></li>
+        <li><a href="https://github.com/dobestan/NHN_NEXT_dev_MARKET">fork me on github</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<script type="text/javascript" charset="utf-8">
+  var url = window.location;
+  // Will only work if string in href matches with location
+  $("ul.nav li").removeClass("active");
+  $('ul.nav a[href="'+ url +'"]').parent().addClass('active');
+
+  // Will also work for relative and absolute hrefs
+  $('ul.nav a').filter(function() {
+      return this.href == url;
+  }).parent().addClass('active');
+</script>
