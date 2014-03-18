@@ -20,6 +20,9 @@ gem 'iconv'
 
 gem 'paperclip'
 
+gem 'thin'
+gem 'connect'
+
 group :doc do
   gem 'sdoc', require: false
 end
