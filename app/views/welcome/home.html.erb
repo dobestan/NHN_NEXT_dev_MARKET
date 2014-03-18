@@ -9,6 +9,12 @@
       <%= link_to "Sign in with Facebook", "/auth/facebook" %>
     </div>
   <% end %>
+    <div class="alert alert-info">
+      <strong>NHN MARKET Stats</strong><br />
+      현재 ( <%= Time.now %> ) 기준으로, 전체 <strong><%= @items.count %></strong>개의 물품이 거래되고 있습니다.<br />
+      전체 물품 중, 현재 거래중인 물품의 갯수는 <strong><%= @finish_0 %></strong>개이고, 거래완료된 물건의 갯수는 <strong><%= @finish_1 %></strong>개 입니다.<br />
+      거래 방식의 경우에는 팝니다( <strong><%= @deal_0  %></strong>개 ), 삽니다( <strong><%= @deal_1  %></strong>개 ), 나눔합니다( <strong><%= @deal_2  %></strong>개 )로 이루어져 있습니다.
+    </div>
 </div>
 
 <%= render "layouts/item"  %>
