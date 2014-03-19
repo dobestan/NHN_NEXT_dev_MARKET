@@ -11,9 +11,10 @@ class ItemsController < ApplicationController
     @item = current_user.items.build(item_params)
     @item.update_attributes(finish: 0)
     if @item.save
+      flash[:success] = "물품이 정상적으로 등록되었습니다."
       redirect_to root_path
     else
-      render text: "no"
+      render "new"
     end
   end
 
@@ -22,9 +23,13 @@ class ItemsController < ApplicationController
   end
 
   def update
-    item = Item.find(params[:id])
-    item.update_attributes(item_params)
-    redirect_to root_path
+    @item = Item.find(params[:id])
+    if @item.update_attributes(item_params)
+      flash[:success] = "물품 정보가 정상적으로 수정되었습니다."
+      redirect_to root_path
+    else
+      render "edit"
+    end
   end
 
   def destroy

@@ -1,3 +1,18 @@
+<% if @item.errors.any? %>
+  <div class="panel panel-danger">
+    <div class="panel-heading">
+      <h3 class="panel-title"><%= @item.errors.count  %>개의 오류가 있습니다.</h3>
+    </div>
+    <div class="panel-body">
+      <ul>
+        <% @item.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end  %>
+      </ul>
+    </div>
+  </div>
+<% end %>
+
 <h1>기존의 물품정보를 수정하세요</h1>
 <p><strike>용돈을 벌 수 있습니다. 전공서적을 팔아  포커리에서 점심를 먹고 오렌지마트에서 아이스크림을 사먹는건 참 행복한 일이죠 후후 :)</strike></p>
 
