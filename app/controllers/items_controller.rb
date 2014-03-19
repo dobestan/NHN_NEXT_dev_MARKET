@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :signed_in_user, only: [:new, :create,:show, :edit, :update, :delete]
+  before_action :signed_in_user, only: [:new, :create, :edit, :update, :delete]
   before_action :correct_user, only: [:edit, :update, :delete]
 
   def new
