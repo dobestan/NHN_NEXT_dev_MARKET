@@ -22,11 +22,7 @@
       <h4 class="list-group-item-heading"><strong><%= item.title %></strong></h4>
       <p class="list-group-item-text"><%= item.description  %></p><br />
       <ul>
-        <li>
-        판매자 : 
-        <%= link_to "#{item.user.name}", user_path(item.user.id) %> | 
-        <%= link_to "#{item.user.items.count}", "/users/#{item.user.id}/items" %>
-        </li>
+        <li>판매자 : <%= link_to "#{item.user.name}", user_path(item.user.id) %> | <%= link_to "#{item.user.items.count}", "/users/#{item.user.id}/items" %> </li>
         <li>가격 : <%= item.price %>원</li>
         <li>판매일자 : <%= item.created_at %></li>
       </ul>

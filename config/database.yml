@@ -1,5 +1,5 @@
 development:
-  adapter: mysql
+  adapter: mysql2
   encoding: utf8
   database: next_market_dev
   username: next
@@ -8,7 +8,7 @@ development:
   port: 3306
 
 test:
-  adapter: mysql
+  adapter: mysql2
   encoding: utf8
   database: next_market_test
   username: next
@@ -17,7 +17,7 @@ test:
   port: 3306
 
 production:
-  adapter: mysql
+  adapter: mysql2
   encoding: utf8
   database: next_market
   username: next
